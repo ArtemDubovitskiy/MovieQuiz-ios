@@ -83,14 +83,12 @@ final class MovieQuizViewController: UIViewController {
         super.viewDidLoad()
         let firstQuestion = questions[currentQuestionIndex]
         show(quiz: convert(model: firstQuestion))
-        
     }
 
     private func show(quiz step: QuizStepViewModel) {
         imageView.image = step.image
         textLabel.text = step.question
-        counterLabel.text = step.questionNumber
-        
+        counterLabel.text = step.questionNumber   
     }
     
     private func convert(model: QuizQuestion) -> QuizStepViewModel {
@@ -116,7 +114,6 @@ final class MovieQuizViewController: UIViewController {
         }
         
         alert.addAction(action)
-
         self.present(alert, animated: true, completion: nil)
     }
     
