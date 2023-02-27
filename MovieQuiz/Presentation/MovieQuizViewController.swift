@@ -28,57 +28,6 @@ final class MovieQuizViewController: UIViewController {
     private var correctAnswers: Int = 0
     private var feedback = UINotificationFeedbackGenerator()
     
-    struct QuizStepViewModel {
-        let image: UIImage
-        let question: String
-        let questionNumber: String
-    }
-   
-    struct QuizResultsViewModel {
-        let title: String
-        let text: String
-        let buttonText: String
-    }
-    
-    struct QuizQuestion {
-        let image: String
-        let text = "Рейтинг этого фильма больше чем 6?"
-        let correctAnswer: Bool
-    }
-    
-    private let questions: [QuizQuestion] = [
-        QuizQuestion(
-            image: "The Godfather",
-            correctAnswer: true),
-        QuizQuestion(
-            image: "The Dark Knight",
-            correctAnswer: true),
-        QuizQuestion(
-            image: "Kill Bill",
-            correctAnswer: true),
-        QuizQuestion(
-            image: "The Avengers",
-            correctAnswer: true),
-        QuizQuestion(
-            image: "Deadpool",
-            correctAnswer: true),
-        QuizQuestion(
-            image: "The Green Knight",
-            correctAnswer: true),
-        QuizQuestion(
-            image: "Old",
-            correctAnswer: false),
-        QuizQuestion(
-            image: "The Ice Age Adventures of Buck Wild",
-            correctAnswer: false),
-        QuizQuestion(
-            image: "Tesla",
-            correctAnswer: false),
-        QuizQuestion(
-            image: "Vivarium",
-            correctAnswer: false)
-    ]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         let firstQuestion = questions[currentQuestionIndex]
