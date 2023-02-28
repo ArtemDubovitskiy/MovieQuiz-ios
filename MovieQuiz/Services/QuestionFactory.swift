@@ -7,7 +7,7 @@
 
 import Foundation
 
-class QuestionFactory: QuestionFactoryProtocol {
+class QuestionFactory { //: QuestionFactoryProtocol
     private let questions: [QuizQuestion] = [
         QuizQuestion(
             image: "The Godfather",
@@ -40,12 +40,12 @@ class QuestionFactory: QuestionFactoryProtocol {
             image: "Vivarium",
             correctAnswer: false)
     ]
-}
-
-func requestNextQuestion() -> QuizQuestion? {
-    guard let index = (0..<questions.count).randomElement() else {
-        return nil
+    
+    func requestNextQuestion() -> QuizQuestion? {
+        guard let index = (0..<questions.count).randomElement() else {
+            return nil
+        }
+        return questions[safe: index]
     }
-    return questions[safe: index]
 }
 
