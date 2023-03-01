@@ -12,7 +12,6 @@ final class MovieQuizViewController: UIViewController {
     
     @IBAction private func yesButtonClicked(_ sender: UIButton) {
         toggleButtons()
-//        let currentQuestion = questions[currentQuestionIndex]
         guard let currentQuestion = currentQuestion else {
             return
         }
@@ -22,7 +21,6 @@ final class MovieQuizViewController: UIViewController {
     
     @IBAction private func noButtonClicked(_ sender: UIButton) {
         toggleButtons()
-//        let currentQuestion = questions[currentQuestionIndex]
         guard let currentQuestion = currentQuestion else {
             return
         }
@@ -32,15 +30,13 @@ final class MovieQuizViewController: UIViewController {
     
     private var currentQuestionIndex: Int = 0
     private var correctAnswers: Int = 0
-    private let questionsAmount: Int = 10 // общее кол-во вопросов для квиза
-    private let questionFactory: QuestionFactory = QuestionFactory() // обращение к фабрике вопросов
-    private var currentQuestion: QuizQuestion? // текущий вопрос который видит пользователь
+    private let questionsAmount: Int = 10
+    private let questionFactory: QuestionFactoryProtocol = QuestionFactory()
+    private var currentQuestion: QuizQuestion?
     private var feedback = UINotificationFeedbackGenerator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let firstQuestion = questions[currentQuestionIndex]
-//        show(quiz: convert(model: firstQuestion))
         if let firstQuestion = questionFactory.requestNextQuestion() {
             currentQuestion = firstQuestion
             let viewModel = convert(model: firstQuestion)
@@ -110,8 +106,8 @@ final class MovieQuizViewController: UIViewController {
         if currentQuestionIndex == questionsAmount - 1 {
             let title = "Этот раунд окончен!"
             let text = correctAnswers == questionsAmount ?
-            "Поздравляем, Вы ответили на 10 из 10!" :
-            "Вы ответили на \(correctAnswers) из 10, попробуйте еще раз!"
+                "Поздравляем, Вы ответили на 10 из 10!" :
+                "Вы ответили на \(correctAnswers) из 10, попробуйте еще раз!"
             let buttonText = "Сыграть ещё раз"
             let viewModel = QuizResultsViewModel(
                 title: title,
