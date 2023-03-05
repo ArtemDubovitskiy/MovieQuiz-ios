@@ -1,6 +1,6 @@
 import UIKit
 
-final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
+final class MovieQuizViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet private var imageView: UIImageView!
@@ -40,6 +40,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
+
         super.viewDidLoad()
         
         questionFactory = QuestionFactory(delegate: self)
@@ -140,4 +141,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
         noButton.isEnabled.toggle()
         yesButton.isEnabled.toggle()
     }
+}
+
+extension MovieQuizViewController: QuestionFactoryDelegate {
 }
