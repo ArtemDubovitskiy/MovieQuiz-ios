@@ -14,41 +14,33 @@ protocol StatisticService {
     var bestGame: GameRecord { get }
 }
 
-// Класс реализующий протокол:
 final class StatisticServiceImplementation: StatisticService {
-    
     private let userDefaults = UserDefaults.standard
-    
-    // Ключи всех сущностей
+
     private enum Keys: String {
         case correct, total, bestGame, gamesCount
     }
-    // Кол-во правильных ответов:
+
     private var correct: Int {
         get {
             userDefaults.integer(forKey: Keys.correct.rawValue)
-            
         }
         set {
             userDefaults.set(newValue, forKey: Keys.correct.rawValue)
-            
         }
     }
-    // Кол-во вопросов
+
     private var total: Int {
         get {
             userDefaults.integer(forKey: Keys.total.rawValue)
-            
         }
         set {
             userDefaults.set(newValue, forKey: Keys.total.rawValue)
-            
         }
     }
     
     private var date = Date()
     
-    // Метод сохранения текущего результата игры
     func store(correct count: Int, total amount: Int) {
         let gameRecord = GameRecord(correct: count, total: amount, date: date)
         if bestGame < gameRecord {
@@ -58,15 +50,13 @@ final class StatisticServiceImplementation: StatisticService {
         total += amount
         gamesCount += 1
     }
-    
-    // Точность ответов
+
     var totalAccuracy: Double {
         get {
             return 100 * (Double(correct) / Double(total))
         }
     }
     
-    // Количество сыгранных игр
     var gamesCount: Int {
         get {
             userDefaults.integer(forKey: Keys.gamesCount.rawValue)
@@ -76,7 +66,6 @@ final class StatisticServiceImplementation: StatisticService {
         }
     }
     
-    // Лучший результат квиза:
     var bestGame: GameRecord {
         get {
             guard let data = userDefaults.data(forKey: Keys.bestGame.rawValue),
@@ -94,5 +83,3 @@ final class StatisticServiceImplementation: StatisticService {
         }
     }
 }
-
-

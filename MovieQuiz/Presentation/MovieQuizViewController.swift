@@ -43,7 +43,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
         super.viewDidLoad()
         
         questionFactory = QuestionFactory(delegate: self)
-        questionFactory?.requestNextQuestion()//(by: currentQuestionIndex)
+        questionFactory?.requestNextQuestion()
         alertPresenter = AlertPresenter()
         statisticService = StatisticServiceImplementation()
     }
@@ -74,7 +74,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
             question: model.text,
             questionNumber: "\(currentQuestionIndex + 1)/\(questionsAmount)")
     }
-    // Меняем метод (выносим Алерты):
+
     private func show(quiz result: QuizResultsViewModel) {
         let alertPresenter = AlertModel(title: result.title,
                                         message: result.text,
@@ -84,9 +84,8 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
             
             self.currentQuestionIndex = 0
             self.correctAnswers = 0
-            self.questionFactory?.requestNextQuestion()//(by: self.currentQuestionIndex)
+            self.questionFactory?.requestNextQuestion()
         })
-        
         let alert = AlertPresenter()
         alert.showAlert(view: self, alert: alertPresenter)
     }
@@ -133,7 +132,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
             show(quiz: viewModel)
         } else {
             currentQuestionIndex += 1
-            questionFactory?.requestNextQuestion()//(by: currentQuestionIndex)
+            questionFactory?.requestNextQuestion()
             }
         }
     
