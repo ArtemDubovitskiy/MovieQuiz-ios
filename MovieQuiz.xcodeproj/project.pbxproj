@@ -11,6 +11,7 @@
 		91303FDE29AD18B300FAAB9C /* QuizStepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91303FDD29AD18B300FAAB9C /* QuizStepViewModel.swift */; };
 		91303FE029AD18C900FAAB9C /* QuizResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91303FDF29AD18C900FAAB9C /* QuizResultsViewModel.swift */; };
 		91303FE229AD18DA00FAAB9C /* QuizQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91303FE129AD18DA00FAAB9C /* QuizQuestion.swift */; };
+		914E58E329BB0B1D00A86EA5 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914E58E229BB0B1D00A86EA5 /* NetworkClient.swift */; };
 		9157983329AF8DCA0071B0CF /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9157983229AF8DCA0071B0CF /* AlertPresenter.swift */; };
 		9157983529AF8EB90071B0CF /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9157983429AF8EB90071B0CF /* AlertModel.swift */; };
 		91A0E5C229832CFB00AED464 /* YS Display-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91A0E5C029832CFB00AED464 /* YS Display-Medium.ttf */; };
@@ -35,6 +36,7 @@
 		91303FDD29AD18B300FAAB9C /* QuizStepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizStepViewModel.swift; sourceTree = "<group>"; };
 		91303FDF29AD18C900FAAB9C /* QuizResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultsViewModel.swift; sourceTree = "<group>"; };
 		91303FE129AD18DA00FAAB9C /* QuizQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizQuestion.swift; sourceTree = "<group>"; };
+		914E58E229BB0B1D00A86EA5 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		9157983229AF8DCA0071B0CF /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 		9157983429AF8EB90071B0CF /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		91A0E5C029832CFB00AED464 /* YS Display-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YS Display-Medium.ttf"; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				91303FDA29AD0D2600FAAB9C /* QuestionFactory.swift */,
 				91F8A75029AF3B8B00F82FEA /* QuestionFactoryDelegate.swift */,
 				91A6E7CA29AE903C00E635A1 /* QuestionFactoryProtocol.swift */,
+				914E58E229BB0B1D00A86EA5 /* NetworkClient.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				91303FDE29AD18B300FAAB9C /* QuizStepViewModel.swift in Sources */,
 				91303FE229AD18DA00FAAB9C /* QuizQuestion.swift in Sources */,
 				91303FDB29AD0D2600FAAB9C /* QuestionFactory.swift in Sources */,
+				914E58E329BB0B1D00A86EA5 /* NetworkClient.swift in Sources */,
 				91E2405729B13E4A00BECED6 /* StatisticService.swift in Sources */,
 				9157983329AF8DCA0071B0CF /* AlertPresenter.swift in Sources */,
 				91F8A75129AF3B8B00F82FEA /* QuestionFactoryDelegate.swift in Sources */,
