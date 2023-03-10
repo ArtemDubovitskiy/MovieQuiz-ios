@@ -41,16 +41,13 @@ final class MovieQuizViewController: UIViewController {
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
-
         super.viewDidLoad()
         
         imageView.layer.cornerRadius = 20
         questionFactory = QuestionFactory(moviesLoader: MoviesLoader(), delegate: self)
         questionFactory?.loadData()
-        alertPresenter = AlertPresenter()
         statisticService = StatisticServiceImplementation()
         showLoadingIndicator()
-        
     }
     
     // MARK: - QuestionFactoryDelegate
@@ -72,7 +69,7 @@ final class MovieQuizViewController: UIViewController {
         textLabel.text = step.question
         counterLabel.text = step.questionNumber
     }
-    // Обновлен метод конвертации 
+
     private func convert(model: QuizQuestion) -> QuizStepViewModel {
         return QuizStepViewModel(
             image: UIImage(data: model.image) ?? UIImage(),
@@ -145,25 +142,24 @@ final class MovieQuizViewController: UIViewController {
         noButton.isEnabled.toggle()
         yesButton.isEnabled.toggle()
     }
-    // Функция отображения индикатора загрузки
+
     private func showLoadingIndicator() {
-        activityIndicator.isHidden = false // индикатор загрузки не скрыт
-        activityIndicator.startAnimating() // включаем анимацию индикатора
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
     }
-    // Функция скрывающая индикатор загрузки
+
     private func hideLoadingIndicator() {
-        activityIndicator.isHidden = true // индикатор загрузки скрыт
+        activityIndicator.isHidden = true
     }
     
     private func showNetworkError(message: String) {
-        hideLoadingIndicator() // скрываем индикатор загрузки
+        hideLoadingIndicator()
         
         let networkErrormodel = AlertModel(
             title: "Ошибка",
             message: message,
             buttonText: "Попробовать еще раз",
             completion: { [weak self] in
-                
                 guard let self = self else { return }
                 
                 self.currentQuestionIndex = 0
@@ -176,11 +172,11 @@ final class MovieQuizViewController: UIViewController {
 
 extension MovieQuizViewController: QuestionFactoryDelegate {
     func didLoadDataFromServer() {
-        activityIndicator.isHidden = true // скрываем индикатор загрузки
+        activityIndicator.isHidden = true
         questionFactory?.requestNextQuestion()
     }
     
     func didFailToLoadData(with error: Error) {
-        showNetworkError(message: error.localizedDescription) // возьмём в качестве сообщения описание ошибки
+        showNetworkError(message: error.localizedDescription)
     }
 }
