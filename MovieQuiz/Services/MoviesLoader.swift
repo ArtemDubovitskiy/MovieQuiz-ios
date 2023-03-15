@@ -4,14 +4,13 @@
 //
 //  Created by Artem Dubovitsky on 10.03.2023.
 //
-
 import Foundation
 
 protocol MoviesLoading {
     func loadMovies(handler: @escaping (Result<MostPopularMovies, Error>) -> Void)
 }
 
-struct MoviesLoader: MoviesLoading {
+struct MoviesLoader {
     // MARK: - NetworkClient
     private let networkClient = NetworkClient()
     
@@ -22,7 +21,9 @@ struct MoviesLoader: MoviesLoading {
         }
         return url
     }
+}
 
+extension MoviesLoader: MoviesLoading {
     func loadMovies(handler: @escaping (Result<MostPopularMovies, Error>) -> Void) {
         networkClient.fetch(url: mostPopularMoviesUrl) { result in
             switch result {
