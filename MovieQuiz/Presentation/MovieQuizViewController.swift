@@ -20,7 +20,7 @@ final class MovieQuizViewController: UIViewController {
     
     @IBAction private func noButtonClicked(_ sender: UIButton) {
         presenter.currentQuestion = currentQuestion
-        presenter.yesButtonClicked()
+        presenter.noButtonClicked()
         toggleButtons()
     }
     
