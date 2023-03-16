@@ -14,8 +14,7 @@ final class AlertPresenter {
             message: result.message,
             preferredStyle: .alert
         )
-        
-        alert.view.accessibilityIdentifier = "Game results" // кастомный идентификатор
+        alert.view.accessibilityIdentifier = "Game results"
         
         let action = UIAlertAction(
             title: result.buttonText,

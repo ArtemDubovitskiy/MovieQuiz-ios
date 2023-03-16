@@ -6,7 +6,6 @@
 //
 
 import XCTest
-import MovieQuiz
 
 final class MovieQuizUITests: XCTestCase {
     // swiftlint:disable:next implicitly_unwrapped_optional
@@ -17,7 +16,6 @@ final class MovieQuizUITests: XCTestCase {
         
         app = XCUIApplication()
         app.launch()
-        // специальная настройка для тестов если один не прошел то следующие тесты запускаться не будут
         
         continueAfterFailure = false
     }
@@ -28,29 +26,25 @@ final class MovieQuizUITests: XCTestCase {
         app.terminate()
         app = nil
     }
-    // тест кнопки Да
+
     func testYesButton() {
         sleep(3)
         
-        let firstPoster = app.images["Poster"] // находим первоначальный постер
+        let firstPoster = app.images["Poster"]
         let firstPosterData = firstPoster.screenshot().pngRepresentation
         
-        app.buttons["Yes"].tap() // находим и нажимаем кнопку Да
+        app.buttons["Yes"].tap()
         sleep(3)
         
-        let secondPoster = app.images["Poster"] // еще раз находим постер
+        let secondPoster = app.images["Poster"]
         let secondPosterData = secondPoster.screenshot().pngRepresentation
         
         let indexLabel = app.staticTexts["Index"]
         
-        //        XCTAssertFalse(firstPosterData == secondPosterData) // проверяем что постеры разные
-        XCTAssertNotEqual(firstPosterData, secondPosterData) // альтернативный вариант
+        XCTAssertNotEqual(firstPosterData, secondPosterData)
         XCTAssertEqual(indexLabel.label, "2/10")
-        //        XCTAssertTrue(firstPoster.exists)
-        //        XCTAssertTrue(secondPoster.exists)
     }
     
-    // тест кнопки Нет
     func testNoButton() {
         sleep(3)
         
@@ -101,10 +95,3 @@ final class MovieQuizUITests: XCTestCase {
         XCTAssertTrue(indexLabel.label == "1/10")
     }
 }
-//    func testExample() throws {
-//
-//        let app = XCUIApplication()
-//        app.launch()
-//
-//    }
-//}

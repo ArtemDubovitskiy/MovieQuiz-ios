@@ -5,11 +5,11 @@
 //  Created by Artem Dubovitsky on 15.03.2023.
 //
 
-import XCTest // импорт фреймворка для тестирования
-@testable import MovieQuiz // импортируем приложение для тестирования
+import XCTest
+@testable import MovieQuiz
 
 class ArrayTests: XCTestCase {
-    func testGetValueInRange() throws { // тест на успешное взятие элемента по индексу
+    func testGetValueInRange() throws {
         // Given
         let array = [1, 1, 2, 3, 5]
         
@@ -21,7 +21,7 @@ class ArrayTests: XCTestCase {
         XCTAssertEqual(value, 2)
     }
     
-    func testGetValueOutOfRange() throws { // тест на взятие элемента по неправильному индексу
+    func testGetValueOutOfRange() throws {
         // Given
         let array = [1, 1, 2, 3, 5]
         
