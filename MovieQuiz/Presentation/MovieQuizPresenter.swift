@@ -81,12 +81,10 @@ final class MovieQuizPresenter: QuestionFactoryDelegate {
     
     func yesButtonClicked() {
         didAnswer(isYes: true)
-//        viewController?.toggleButtons()
     }
     
     func noButtonClicked() {
         didAnswer(isYes: false)
-//        viewController?.toggleButtons()
     }
     
     private func didAnswer(isYes: Bool) {
@@ -117,9 +115,6 @@ final class MovieQuizPresenter: QuestionFactoryDelegate {
             let text = correctAnswers == self.questionsAmount ?
             "Поздравляем, вы ответили на 10 из 10!" :
             "Вы ответили на \(correctAnswers) из 10, попробуйте ещё раз!"
-//
-//            guard let statisticService = statisticService else { return }
-//            statisticService.store(correct: correctAnswers, total: self.questionsAmount)
 
             let viewModel = QuizResultsViewModel(
                 title: "Этот раунд окончен!",
@@ -134,8 +129,6 @@ final class MovieQuizPresenter: QuestionFactoryDelegate {
     
     func makeResultsMessage() -> String {
         statisticService.store(correct: correctAnswers, total: questionsAmount)
-        
-//        let bestGame = statisticService.bestGame
         
         let totalPlaysCountLine = "Количество сыгранных квизов: \(statisticService.gamesCount)"
         let currentGameResultLine = "Ваш результат: \(correctAnswers) из \(questionsAmount)"

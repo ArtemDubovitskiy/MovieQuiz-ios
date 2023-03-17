@@ -10,27 +10,21 @@ import XCTest
 
 final class MovieQuizViewControllerMock: MovieQuizViewControllerProtocol {
     func show(quiz step: QuizStepViewModel) {
-        
     }
     
     func show(quiz result: QuizResultsViewModel) {
-        
     }
     
     func highlightImageBorder(isCorrectAnswer: Bool) {
-
     }
     
     func showLoadingIndicator() {
-        
     }
     
     func hideLoadingIndicator() {
-        
     }
     
     func showNetworkError(message: String) {
-        
     }
 }
 
@@ -47,24 +41,4 @@ final class MovieQuizPresenterTests: XCTestCase {
         XCTAssertEqual(viewModel.question, "Question Text")
         XCTAssertEqual(viewModel.questionNumber, "1/10")
     }
-
-//    override func setUpWithError() throws {
-//
-//    }
-//
-//    override func tearDownWithError() throws {
-//
-//    }
-//
-//    func testExample() throws {
-//
-//    }
-//
-//    func testPerformanceExample() throws {
-//
-//        measure {
-//
-//        }
-//    }
-
 }
