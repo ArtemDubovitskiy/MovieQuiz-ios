@@ -1,6 +1,6 @@
 import UIKit
 
-final class MovieQuizViewController: UIViewController {
+final class MovieQuizViewController: UIViewController, MovieQuizViewControllerProtocol {
     
     // MARK: - Outlets
     @IBOutlet private var imageView: UIImageView!
@@ -25,7 +25,7 @@ final class MovieQuizViewController: UIViewController {
 //    private var correctAnswers: Int = 0
 //    private var questionFactory: QuestionFactoryProtocol?
 //    private var currentQuestion: QuizQuestion?
-    private var alertPresenter = AlertPresenter()
+    private var alertPresenter: AlertPresenter?
 //    private var statisticService: StatisticService?
     private var feedback = UINotificationFeedbackGenerator()
     private var presenter: MovieQuizPresenter!
@@ -99,7 +99,7 @@ final class MovieQuizViewController: UIViewController {
                 
                 self.presenter.restartGame()
             })
-        alertPresenter.showAlert(view: self, alert: networkErrormodel)
+        alertPresenter?.showAlert(view: self, alert: networkErrormodel)
     }
 }
 
