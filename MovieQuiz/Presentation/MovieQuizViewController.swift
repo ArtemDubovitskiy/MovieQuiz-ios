@@ -46,6 +46,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
         
         questionFactory?.requestNextQuestion()
         alertPresenter = AlertPresenter(viewController: self)
+    // weqweqweqwe
     }
     
     // MARK: - QuestionFactoryDelegate
